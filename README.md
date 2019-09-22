@@ -1,2 +1,25 @@
 # atemporal
-experiments in secure (hard to cheat), efficient (game-speed), in-browser p2p algorithms
+I want a library I can use for making P2P games with Javascript in the browser, which transparently supports:
+*  Conflict-resolution in state updates
+*  Converging to trust-values for peers based on minimizing local-universal divergence
+*  Efficiently pruning history for bad peers
+
+Basically, the goal is to be able to make multiplayer games in javascript that are hard to cheat.
+Note that, this problem is effectively impossible if you drop the possiblity of pruning history (and so state) by trust.
+I'm not sure how you would prove a system is Byzantine-fault tolerant, so my experiments will only get to the "OK-in-practice" level.
+If you look at this repository some weeks from its creation date, and it is empty, then I have failed in working on this side project :(.
+
+## What currently exists:
+Much work has been done by people who have read far more papers than me on parts of this topic:
+
+* https://github.com/automerge/automerge
+    * Easy to use, unsure how it would scale to realtime updates from multiple simulatenous peers
+    * Would need some way to intelligently prune history to stop it growing unboundedly.
+
+* https://gun.eco
+    * Need to experiment
+    
+* http://archagon.net/blog/2018/03/24/data-laced-with-history
+    * Need to experiment
+ 
+It seems like what we want is a CRDT, with some ability to throw away the history after some number of trusted peers reach consensus (this can be done per-peer, and if a peer fails their computer will just slow from the memory pressure, and they might end up living in a fork). 
