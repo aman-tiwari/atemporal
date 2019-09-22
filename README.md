@@ -24,4 +24,4 @@ Much work has been done by people who have read far more papers than me on parts
  
 It seems like what we want is a CRDT, with some ability to throw away the history after some number of trusted peers reach consensus (this can be done per-peer, and if a peer fails their computer will just slow from the memory pressure, and they might end up living in a fork). 
 
-What I am hoping for is some randomized algorithm, that with high probability (i.e, `P(failure) ~ O(1/(num_peers ^ 2))`)
+What I am hoping for is some randomized algorithm, that with high probability (i.e, `P(failure) ~ O(1/(num_peers ^ 2))`), prunes a CRDT to the maximal benefit of globally trusted peers.
