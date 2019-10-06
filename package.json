@@ -1,0 +1,7 @@
+{
+  "name": "atemporal",
+  "version": "0.0.c",
+  "description": "c<1?",
+  "main": "src/index.ts",
+  "license": "GPL"
+}
